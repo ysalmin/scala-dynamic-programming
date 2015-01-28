@@ -17,7 +17,6 @@ object MaximumPathSum {
   def extendPath(newValue: Int, previous: Option[Path]): Path = Path(previous.get.sum + newValue, newValue, previous)
 
   // Find optimal solution (path with maximum sum) for every number from the bottom line of triangle.
-  // You can split this function to several ones.
   def calculateOptimalPaths(data:List[List[Int]]): List[Path] = {
     def fork(data: List[List[Path]]): List[List[Path]] = data match {
       case first :: second :: rest => fork(join(first, second) :: rest)
